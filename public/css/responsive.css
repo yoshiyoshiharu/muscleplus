@@ -1,0 +1,14 @@
+@media all and (max-width:768px){
+  .logos{
+    display: block;
+  }
+  .catch{
+    text-align: center;
+  }
+  .intro{
+    margin-top:70px;
+  }
+  .intro p{
+    margin-bottom:50px;
+  }
+}
