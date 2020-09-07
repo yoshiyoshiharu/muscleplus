@@ -14,7 +14,8 @@
 .card-wrap .time{
   color:#aaa;
 }
-.card-wrap .card-text{
+.card-wrap .post-body{
+  font-size:18px;
   color:#333;
 }
 .card-right a{
@@ -25,4 +26,23 @@
 }
 .like:hover{
   color:tomato;
+}
+.comment-wrap{
+  border-top:1px solid #ccc;
+}
+.comment-wrap a{
+  color:#333;
+}
+.comment-wrap a:hover{
+  color:#333;
+}
+#send-icon{
+  cursor:pointer;
+  color:#4689FF;
+  padding-right:0;
+  padding-left:30px;
+}
+.comment-error{
+  color:tomato;
+  font-size:12px;
 }

@@ -32,3 +32,6 @@ Route::get('/guest', 'Auth\LoginController@authenticate')->name('login.guest');
 
 Route::get('/likes/{post}' , 'LikesController@store')->name('likes.new')->where('post', '[0-9]+');
 Route::get('/likes/{like}/delete' , 'LikesController@destroy')->name('likes.delete')->where('like', '[0-9]+');
+
+Route::post('/comments' , 'CommentsController@store')->name('comments.new');
+Route::get('/comments/{comment}/delete' , 'CommentsController@destroy')->name('comments.delete')->where('comment', '[0-9]+');

@@ -26,6 +26,8 @@
     <link href="{{ asset('css/styles.css') }}" rel="stylesheet">
     <link href="{{ asset('css/users.css') }}" rel="stylesheet">
     <link href="{{ asset('css/posts.css') }}" rel="stylesheet">
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 </head>
 <body>
     <div id="app">
@@ -37,6 +39,5 @@
         <p>&copy; 2020 muscleplus Co. , Ltd.</p>
       </footer>
     </div>
-
 </body>
 </html>
