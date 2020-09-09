@@ -35,3 +35,5 @@ Route::get('/likes/{like}/delete' , 'LikesController@destroy')->name('likes.dele
 
 Route::post('/comments' , 'CommentsController@store')->name('comments.new');
 Route::get('/comments/{comment}/delete' , 'CommentsController@destroy')->name('comments.delete')->where('comment', '[0-9]+');
+
+Route::get('ajax/tags/{user}', 'Ajax\TagsController@index')->where('user', '[0-9]+');
