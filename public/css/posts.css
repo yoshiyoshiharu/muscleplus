@@ -39,10 +39,65 @@
 #send-icon{
   cursor:pointer;
   color:#4689FF;
-  padding-right:0;
-  padding-left:30px;
 }
 .comment-error{
   color:tomato;
   font-size:12px;
+}
+
+.tag-name{
+  text-align: center;
+  color:white;
+  display: inline-block;
+  width:50px;
+  border-radius:3px;
+  margin:0 5px;
+}
+.parts-1{
+  background-color:orange;
+}
+.parts-2{
+  background-color:deeppink;
+}
+.parts-3{
+  background-color:tomato;
+}
+.parts-4{
+  background-color:slateblue;
+}
+.parts-5{
+  background-color:forestgreen;
+}
+.parts-6{
+  background-color:purple;
+}
+.tags{
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap:wrap;
+}
+.checkbox label {
+  position: relative;
+  display: inline-block;
+  width:80px;
+  text-align: center;
+}
+.checkbox label input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+}
+.checkbox label input[type="checkbox"] + span {
+  display: block;
+  color: #333;
+  border: 1px solid #333;
+  border-radius: 3px;
+  padding:5px 5px;
+  margin:8px;
+}
+.checkbox label input[type="checkbox"]:checked + span {
+  background-color: orange;
+  color: white;
+}
+.checkbox .tag-name {
+  cursor:pointer;
 }

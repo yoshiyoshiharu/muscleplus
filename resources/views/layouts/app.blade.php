@@ -29,12 +29,12 @@
 
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 </head>
+
 <body>
     <div id="app">
         @include('layouts.navbar')
 
         @yield('content')
-
       <footer>
         <p>&copy; 2020 muscleplus Co. , Ltd.</p>
       </footer>

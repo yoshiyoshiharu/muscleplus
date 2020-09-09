@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Post;
+use App\Tag;
 use Validator;
 use Auth;
 class PostsController extends Controller
@@ -14,12 +15,14 @@ class PostsController extends Controller
 
     public function index(){
       $posts = Post::all()->sortByDesc('created_at');
-      return view('post.index' , ['posts' => $posts]);
+      $tags =  Tag::all();
+      return view('post.index' , ['posts' => $posts , 'tags' => $tags]);
 
     }
 
     public function create(){
-      return view('post.create');
+      $tags =  Tag::all();
+      return view('post.create' , ['tags' => $tags]);
     }
 
     public function store(Request $request , Post $post){
@@ -37,18 +40,20 @@ class PostsController extends Controller
       $post->user_id = Auth::user()->id;
 
       $post->save();
+
+      $post->tags()->sync($request->tags);
       return redirect('/home');
     }
 
     public function edit(Post $post){
-      return view('post.edit' , ['post' => $post]);
+      $tags =  Tag::all();
+      return view('post.edit' , ['post' => $post , 'tags' => $tags]);
     }
 
     public function update(Request $request , Post $post){
       $validator = Validator::make($request->all() , [
             'body' => 'string|max:255|nullable'
       ]);
-
       if ($validator->fails())
       {
         return redirect()->back()->withErrors($validator->errors())->withInput();
@@ -56,6 +61,7 @@ class PostsController extends Controller
 
       $post->body = $request->body;
       $post->save();
+      $post->tags()->sync($request->tags);
       return redirect('/home');
     }
 
