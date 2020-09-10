@@ -38,7 +38,7 @@
     </div>
     <div class="user-posts">
       <h3>記録一覧</h3>
-      @foreach($user->posts as $post)
+      @foreach($user->posts->sortByDesc('created_at') as $post)
       <div class="card-wrap">
         <div class="card mt-5">
           <div class="card-body d-flex justify-content-between">

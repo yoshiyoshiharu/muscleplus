@@ -21,12 +21,11 @@
 .card-right a{
   color:#333;
 }
-.like{
+.btn-like i{
   color:tomato;
+  cursor:pointer;
 }
-.like:hover{
-  color:tomato;
-}
+
 .comment-wrap{
   border-top:1px solid #ccc;
 }

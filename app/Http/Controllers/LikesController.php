@@ -12,16 +12,29 @@ class LikesController extends Controller
     public function __construct(){
       $this->middleware('auth');
     }
-    public function store(Post $post){
-      $like = new Like;
-      $like->post_id = $post->id;
-      $like->user_id = Auth::user()->id;
-      $like->save();
-      return redirect('/home');
+
+    public function process(Post $post){
+      $user_like = Like::where([
+        ['user_id' , Auth::user()->id],
+        ['post_id' , $post->id]
+      ])->first();
+
+      $likes_count = Like::where('post_id' , $post->id)->count();
+
+      if($user_like){
+        //delete
+        $user_like->delete();
+        return $likes_count-1;
+      }else{
+        //create
+        $newlike = new Like;
+        $newlike->post_id = $post->id;
+        $newlike->user_id = Auth::user()->id;
+        $newlike->save();
+        return $likes_count+1;
+      }
+
      }
 
-     public function destroy(Like $like){
-       $like->delete();
-       return redirect('/home');
-     }
+
 }
