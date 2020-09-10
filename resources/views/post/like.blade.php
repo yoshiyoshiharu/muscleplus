@@ -12,27 +12,27 @@
 </div>
 
 <script>
-  $(function(){
-    'use strict';
+$(function(){
+  'use strict';
 
-    $('.btn-like').off().on('click' , function(){
-      var post_id = $(this).data('id');
-      var url = '/likes/' + post_id;
-      var $this = $(this); //これ必要
+  $('.btn-like').off().on('click' , function(){
+    var post_id = $(this).data('id');
+    var url = '/likes/' + post_id;
+    var $this = $(this);
 
-      $.ajax({
-        type:'get' ,
-        url : url ,
-        data: 'json'
-      }).then(function(data){
-        console.log('success');
-        $this.children('i').toggleClass('far');
-        $this.children('i').toggleClass('fas');
-        $this.children('i').toggleClass('active');
-        $this.parents('div').children('.likes-count').html(data);
-      }).fail(function(msg) {
-            console.log('Ajax Error');
-        });;
-    });
+    $.ajax({
+      type:'get' ,
+      url : url ,
+      data: 'json'
+    }).then(function(data){
+      $this.children('i').toggleClass('far');
+      $this.children('i').toggleClass('fas');
+      $this.children('i').toggleClass('active');
+      $this.parents('div').children('.likes-count').html(data);
+    }).fail(function(msg) {
+          console.log('Ajax Error');
+      });;
   });
+});
+
 </script>
