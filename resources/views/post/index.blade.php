@@ -10,7 +10,7 @@
           @include('post.card')
 
           @include('post.like')
-          
+
           @include('post.tag')
 
           @include('post.comment')

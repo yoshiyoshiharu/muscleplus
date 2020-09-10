@@ -1,10 +1,38 @@
 <div class="card-body pl-4">
-  @if($post->likedBy(Auth::user())->count() > 0)
-  <!-- いいね済み -->
-    <a class="like" href="{{route('likes.delete' , ['like' => $post->likedBy(Auth::user())->firstOrFail() ])}}"><i class="fas fa-heart"></i></a>
-  @else
-  <!-- いいねまだ -->
-    <a class="like" href="{{route('likes.new' , ['post' => $post])}}"><i class="far fa-heart"></i></a>
-  @endif
-  {{$post->likes->count()}}
+  <span class="btn-like" data-id="{{$post->id}}">
+    <i class="fa-heart
+    <?php if($post->likedBy(Auth::user())->count() > 0){
+      echo ' active fas';
+    }else{
+      echo ' far';
+    } ?>">
+    </i>
+  </span>
+  <span class="likes-count">{{$post->likes->count()}}</span>
 </div>
+
+<script>
+  $(function(){
+    'use strict';
+
+    $('.btn-like').off().on('click' , function(){
+      var post_id = $(this).data('id');
+      var url = '/likes/' + post_id;
+      var $this = $(this); //これ必要
+
+      $.ajax({
+        type:'get' ,
+        url : url ,
+        data: 'json'
+      }).then(function(data){
+        console.log('success');
+        $this.children('i').toggleClass('far');
+        $this.children('i').toggleClass('fas');
+        $this.children('i').toggleClass('active');
+        $this.parents('div').children('.likes-count').html(data);
+      }).fail(function(msg) {
+            console.log('Ajax Error');
+        });;
+    });
+  });
+</script>
