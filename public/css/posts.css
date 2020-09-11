@@ -35,7 +35,7 @@
 .comment-wrap a:hover{
   color:#333;
 }
-#send-icon{
+.send-icon{
   cursor:pointer;
   color:#4689FF;
 }

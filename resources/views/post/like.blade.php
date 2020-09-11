@@ -16,15 +16,16 @@ $(function(){
   'use strict';
 
   $('.btn-like').off().on('click' , function(){
-    var post_id = $(this).data('id');
-    var url = '/likes/' + post_id;
     var $this = $(this);
+    var post_id = $this.data('id');
+    var url = '/likes/' + post_id;
+
 
     $.ajax({
       type:'get' ,
       url : url ,
       data: 'json'
-    }).then(function(data){
+    }).done(function(data){
       $this.children('i').toggleClass('far');
       $this.children('i').toggleClass('fas');
       $this.children('i').toggleClass('active');
