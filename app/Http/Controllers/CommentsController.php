@@ -31,16 +31,12 @@ class CommentsController extends Controller
     $comment->user_id = Auth::user()->id;
     $comment->save();
 
-    $post_comments = Comment::where('post_id' , $request->post_id)->orderBy('created_at' , 'asc')->get();
 
-    $comments_list = array(); //user_id,user_name,commentの配列
-    foreach($post_comments as $post_comment){
-      $comment_list['user_id'] = $post_comment->user_id;
-      $comment_list['user_name'] = User::find($post_comment->user_id)->name;
-      $comment_list['comment'] = $post_comment->comment;
-      $comments_list[] = $comment_list;
-     }
-    return response()->json(['comments' => $comments_list] , 200);
+    $comments = [
+                 'user_name' => Auth::user()->name ,
+                 'comment' => $comment->comment
+               ];
+    return response()->json(['comments' => $comments] , 200);
   }
 
   public function destroy(Comment $comment){
