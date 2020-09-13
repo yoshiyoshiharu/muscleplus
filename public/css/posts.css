@@ -100,3 +100,18 @@
 .checkbox .tag-name {
   cursor:pointer;
 }
+
+/* comment */
+.comment-wrap li{
+  list-style: none;
+  margin-bottom:10px;
+}
+#comment-data{
+  margin:0;
+  padding:0;
+  padding-bottom:10px;
+}
+.delete-btn{
+  color:#aaa;
+  font-weight:lighter;
+}

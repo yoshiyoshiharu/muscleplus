@@ -17,7 +17,7 @@
   @if($post->user == Auth::user())
   <div class="card-right">
     <a href="{{route('posts.edit' , ['post' => $post])}}"><i class="far fa-edit"></i></a>
-    <a href="{{route('posts.delete' , ['post' => $post])}}" onclick="return confirm('記録を削除してもよろしいですか？')"><i class="fas fa-trash"></i></a>
+    <a href="{{route('posts.delete' , ['post' => $post])}}" onclick="return confirm('記録を削除してもよろしいですか？')"><i class="fas fa-trash-alt"></i></a>
   </div>
   @endif
 </div>

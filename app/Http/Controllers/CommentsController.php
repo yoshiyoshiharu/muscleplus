@@ -33,6 +33,7 @@ class CommentsController extends Controller
 
 
     $comments = [
+                 'id' => $comment->id ,
                  'user_name' => Auth::user()->name ,
                  'comment' => $comment->comment
                ];
@@ -41,6 +42,6 @@ class CommentsController extends Controller
 
   public function destroy(Comment $comment){
     $comment->delete();
-    return redirect('/home');
+    return [];
   }
 }
