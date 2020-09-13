@@ -35,6 +35,9 @@
 .comment-wrap a:hover{
   color:#333;
 }
+.delete-btn{
+  cursor: pointer;
+}
 .send-icon{
   cursor:pointer;
   color:#4689FF;

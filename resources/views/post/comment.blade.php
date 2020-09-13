@@ -3,7 +3,7 @@
   <ul id="comment-data">
     @foreach($post->comments as $comment)
     <li class="comment-list" data-id="{{$comment->id}}">
-      <strong class="comment-name">{{$comment->user->name}}</strong>
+      <a href="{{route('users.show' , ['user' => $comment->user])}}"><strong class="comment-name">{{$comment->user->name}}</strong></a>
       <span class="comment">{{$comment->comment}}</span>
       @if(Auth::user()->id === $comment->user->id)
         <span class="delete-btn">[x]</span>
@@ -14,7 +14,7 @@
     </li>
     @endforeach
     <li class="comment-list" id="comment-template" style="display:none;" data-id="">
-      <strong class="comment-name"></strong>
+      <a href="{{route('users.show' , ['user' => Auth::user()])}}"><strong class="comment-name"></strong></a>
       <span class="comment"></span>
       <span class="delete-btn">[x]</span>
       <form class="comment-delete" method="post" style="display:none;">

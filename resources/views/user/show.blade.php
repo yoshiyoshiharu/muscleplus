@@ -49,7 +49,8 @@
             </div>
             @if($post->user == Auth::user())
             <div class="card-right">
-              <a href="{{route('posts.delete' , ['post' => $post])}}" onclick="return confirm('記録を削除してもよろしいですか？')"><i class="fas fa-trash"></i></a>
+              <a href="{{route('posts.edit' , ['post' => $post])}}"><i class="far fa-edit"></i></a>
+              <a href="{{route('posts.delete' , ['post' => $post])}}" onclick="return confirm('記録を削除してもよろしいですか？')"><i class="fas fa-trash-alt"></i></a>
             </div>
             @endif
           </div>
@@ -64,18 +65,8 @@
           </div>
           <!-- タグ -->
           @include('post.tag')
-          <div class="card-body comment-wrap px-4">
-            <!-- コメント -->
-            @foreach($post->comments as $comment)
-              <div class="card-text mb-2">
-                <strong class="mr-2"><a href="/users/{{$comment->user->id}}">{{$comment->user->name}}</a></strong>
-                <span>{{$comment->comment}}</span>
-                @if($comment->user == Auth::user())
-                  <a href="{{route('comments.delete' , ['comment' => $comment])}}" onclick="return confirm('コメントを削除してもよろしいですか？')">[x]</a>
-                @endif
-              </div>
-            @endforeach
-          </div>
+          <!-- コメント -->
+          @include('post.comment')
         </div>
       </div>
       @endforeach

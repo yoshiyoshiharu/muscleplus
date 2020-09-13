@@ -33,7 +33,7 @@ $(function(){
           commentClone.attr('data-id', data.comments.id);
           commentClone.removeAttr('style');
           commentClone.removeAttr('id');
-          commentClone.children('.comment-name').text(data.comments.user_name);
+          commentClone.find('.comment-name').text(data.comments.user_name);
           commentClone.children('.comment').text(data.comments.comment);
           $ul.append(commentClone);
 
