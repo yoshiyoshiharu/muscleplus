@@ -10,12 +10,14 @@ $(function(){
      }
   });
 
+    const app_url = $('#comment-data').data('url');
     //create
     $('.send-icon').off().on('click' , function(){
       var $this = $(this);
       var $form = $this.parents('#comment-form');
       var $ul = $form.prev('ul');
-      const url = '/comments';
+      const url = app_url + '/comments';
+
       $.ajax({
         type:'post' ,
         url: url ,
@@ -53,7 +55,7 @@ $(function(){
       var $this = $(this);
       var $li = $this.parents('li');
       var $form = $this.next('.comment-delete');
-      const url  = '/comments/' + $li.data('id');
+      const url = app_url + '/comments/' + $li.data('id');
       $.ajax({
         type:'post' ,
         url: url ,

@@ -29,7 +29,7 @@
 
             @auth
               <li class="nav-item">
-                  <a class="nav-link" href="/home">ホーム</a>
+                  <a class="nav-link" href="{{route('posts.index')}}">ホーム</a>
               </li>
               <li class="nav-item">
                   <a class="nav-link" href="{{route('posts.new')}}">記録する</a>

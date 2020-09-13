@@ -1,6 +1,6 @@
 <div class="card-body comment-wrap px-4">
   <!-- comment list -->
-  <ul id="comment-data">
+  <ul id="comment-data" data-url="{{config('app.url')}}">
     @foreach($post->comments as $comment)
     <li class="comment-list" data-id="{{$comment->id}}">
       <a href="{{route('users.show' , ['user' => $comment->user])}}"><strong class="comment-name">{{$comment->user->name}}</strong></a>
