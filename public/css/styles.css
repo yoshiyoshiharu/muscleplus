@@ -57,7 +57,7 @@ img{
   display:flex;
   align-items: center;
 }
-.catch p{
+#catch p{
   font-size:24px;
   font-weight: bold;
   color:#333;
