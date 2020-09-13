@@ -10,7 +10,7 @@
       <div class="logo">
         <img src="{{url('images/logo.png')}}" alt="">
       </div>
-      <div class="catch">
+      <div id="catch">
         <p>筋トレの成果を、</p>
         <p>見えるものに。</p>
       </div>
@@ -33,4 +33,5 @@
     </div>
   </div>
 </div>
+
 @endsection

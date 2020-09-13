@@ -92,7 +92,7 @@ return [
         'string'  => ':attribute は :min 文字以上のみ有効です',
         'array'   => ':attribute は :min 個以上のみ有効です',
     ],
-    'not_in'               => ':attribute 無効な値です',
+    'not_in'               => 'ゲストは変更できません',
     'not_regex'            => 'The :attribute format is invalid.',
     'numeric'              => ':attribute は数字のみ有効です',
     'present'              => ':attribute が存在しません',

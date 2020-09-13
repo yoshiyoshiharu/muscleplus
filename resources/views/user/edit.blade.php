@@ -12,10 +12,11 @@
           <form class="edit-user" enctype="multipart/form-data" action="{{route('users.update')}}" method="post">
             {{csrf_field()}}
             <input type="hidden" name="id" value="{{ $user->id }}" />
+            <input type="hidden" name="email" value="{{$user->email}}">
             <div class="form-group">
               <p class="mb-1 mt-4">プロフィール写真</p>
               @if ($user->profile_photo)
-              <div>
+              <div class="profile-photo">
                 <img src="{{ asset('storage/user_images/' . $user->profile_photo) }}">
               </div>
               @endif
