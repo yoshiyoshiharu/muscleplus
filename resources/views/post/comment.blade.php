@@ -2,14 +2,24 @@
   <!-- comment list -->
   <ul id="comment-data">
     @foreach($post->comments as $comment)
-    <li class="comment-list">
+    <li class="comment-list" data-id="{{$comment->id}}">
       <strong class="comment-name">{{$comment->user->name}}</strong>
       <span class="comment">{{$comment->comment}}</span>
+      @if(Auth::user()->id === $comment->user->id)
+        <span class="delete-btn">[x]</span>
+        <form class="comment-delete" method="post" style="display:none;">
+          {{csrf_field()}}
+        </form>
+      @endif
     </li>
     @endforeach
-    <li class="comment-list" id="comment-template" style="display:none;">
-      <strong class="comment-name">hello</strong>
-      <span class="comment">hello</span>
+    <li class="comment-list" id="comment-template" style="display:none;" data-id="">
+      <strong class="comment-name"></strong>
+      <span class="comment"></span>
+      <span class="delete-btn">[x]</span>
+      <form class="comment-delete" method="post" style="display:none;">
+        {{csrf_field()}}
+      </form>
     </li>
   </ul>
   <!-- comment form -->

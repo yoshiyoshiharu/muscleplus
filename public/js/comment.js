@@ -15,7 +15,7 @@ $(function(){
       var $this = $(this);
       var $form = $this.parents('#comment-form');
       var $ul = $form.prev('ul');
-      var url = '/comments';
+      const url = '/comments';
       $.ajax({
         type:'post' ,
         url: url ,
@@ -29,7 +29,8 @@ $(function(){
         }else if(xhr.status === 200){
           //success
           console.log(data);
-          var commentClone = $ul.children('#comment-template').clone();
+          var commentClone = $ul.children('#comment-template').clone(true); //イベントも複製するためtrue
+          commentClone.attr('data-id', data.comments.id);
           commentClone.removeAttr('style');
           commentClone.removeAttr('id');
           commentClone.children('.comment-name').text(data.comments.user_name);
@@ -47,5 +48,25 @@ $(function(){
     });
 
     //delete
-
+    $('.delete-btn').off().on('click' , function(){
+      console.log('click');
+      var $this = $(this);
+      var $li = $this.parents('li');
+      var $form = $this.next('.comment-delete');
+      const url  = '/comments/' + $li.data('id');
+      $.ajax({
+        type:'post' ,
+        url: url ,
+        dataType:'json',
+        data:$form.serialize() ,
+        timeout: 5000
+      }).done(function(data){
+        //success
+        console.log('success');
+        $li.remove();
+      }).fail(function(msg){
+        console.log('failed!');
+        console.log(msg);
+      });
+    });
   });

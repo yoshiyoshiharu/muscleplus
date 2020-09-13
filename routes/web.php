@@ -32,7 +32,7 @@ Route::get('/guest', 'Auth\LoginController@authenticate')->name('login.guest');
 
 Route::get('/likes/{post}' , 'LikesController@process')->name('likes')->where('post', '[0-9]+');
 
-Route::post('/comments' , 'CommentsController@store')->name('comments.new');
-Route::get('/comments/{comment}/delete' , 'CommentsController@destroy')->name('comments.delete')->where('comment', '[0-9]+');
+Route::post('/comments' , 'CommentsController@store');
+Route::post('/comments/{comment}' , 'CommentsController@destroy')->where('comment', '[0-9]+');
 
 Route::get('ajax/tags/{user}', 'Ajax\TagsController@index')->where('user', '[0-9]+');
