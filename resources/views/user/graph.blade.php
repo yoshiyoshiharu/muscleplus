@@ -1,11 +1,12 @@
 
-  <canvas id="myPieChart"></canvas>
+  <canvas id="myPieChart" data-url="{{config('app.url')}}"></canvas>
 　　　　　　　
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
   <script>
-
+    const app_url = document.getElementById('myPieChart').dataset.url;
     const user_id = @json($user->id);
-    const url = '/ajax/tags/' + user_id;
+    const url = app_url + '/ajax/tags/' + user_id;
+    console.log(url);
     var parts = [];
     var count = [];
     fetch(url)

@@ -118,3 +118,9 @@
   color:#aaa;
   font-weight:lighter;
 }
+
+@media all and (max-width:768px){
+  .send-icon{
+    padding-right:0px;
+  }
+}

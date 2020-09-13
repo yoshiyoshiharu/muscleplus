@@ -5,6 +5,7 @@ $(function(){
     var $this = $(this);
     var post_id = $this.data('id');
     var app_url = $this.data('url');
+
     var url = app_url + '/likes/' + post_id;
 
     $.ajax({
