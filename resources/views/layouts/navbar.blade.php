@@ -1,11 +1,11 @@
 <nav class="navbar navbar-expand-sm navbar-light" style="background:#FFCC00;	">
   <div class="header-left">
-    <a href="/" class="navbar-brand">
+    <a href="{{route('welcome')}}" class="navbar-brand">
       <img src="{{url('images/header-logo.png')}}" style="width:30px; height:30px;">
     </a>
     <div class="header-title">
       <p>筋トレコミュニティ</p>
-      <h1><a href="/">Muscle +</a></h1>
+      <h1><a href="{{route('welcome')}}">Muscle +</a></h1>
     </div>
   </div>
 
