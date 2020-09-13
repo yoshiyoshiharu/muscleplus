@@ -4,8 +4,8 @@ $(function(){
   $('.btn-like').off().on('click' , function(){
     var $this = $(this);
     var post_id = $this.data('id');
-    var url = '/likes/' + post_id;
-
+    var app_url = $this.data('url');
+    var url = app_url + '/likes/' + post_id;
 
     $.ajax({
       type:'get' ,
