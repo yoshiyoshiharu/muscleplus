@@ -1,14 +1,14 @@
 <div class="card-body d-flex justify-content-between">
   <div class="card-left">
     <div class="profile-photo" >
-      <a href="/users/{{$post->user->id}}">
+      <a href="{{route('users.show' , ['user' => $post->user])}}">
         @if($post->user->profile_photo)
         <img src="{{asset('storage/user_images/' . $post->user->profile_photo)}}">
         @else
         <img src="{{asset('images/noimage.png')}}">
         @endif
       </a>
-      <a class="user-name" href="/users/{{$post->user->id}}">{{$post->user->name}}</a>
+      <a class="user-name" href="{{route('users.show' , ['user' => $post->user])}}">{{$post->user->name}}</a>
     </div>
     <div class="font-weight-lighter time">
       {{$post->created_at->format('Y/m/d H:i')}}
