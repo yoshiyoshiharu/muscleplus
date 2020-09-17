@@ -57,12 +57,20 @@
                                     {{ __('ログイン') }}
                                 </button>
 
-                                <a class="btn btn-link" href="{{ route('password.request') }}">
-                                    {{ __('パスワードを忘れましたか?') }}
-                                </a>
                             </div>
                         </div>
                     </form>
+                    <div class="form-group row mt-4">
+                        <div class="col-md-8 offset-md-4">
+                          <div id="facebook-btn">
+                            <a href="{{route('login.facebook')}}" class="btn">
+                            <i class="fab fa-facebook"></i> Facebookでログイン
+                            </a>
+                          </div>
+                            <p class="facebook-attention">※Facebookアカウントのユーザ名がタイムラインに公開されます。</p>
+                            <span class="error">{{ $errors->facebook->first() }}</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
