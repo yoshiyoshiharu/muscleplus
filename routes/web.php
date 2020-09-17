@@ -36,3 +36,6 @@ Route::post('/comments' , 'CommentsController@store');
 Route::post('/comments/{comment}' , 'CommentsController@destroy')->where('comment', '[0-9]+');
 
 Route::get('/ajax/tags/{user}', 'Ajax\TagsController@index')->where('user', '[0-9]+');
+
+Route::get('login/facebook' , 'AUth\LoginController@redirectToFacebook')->name('login.facebook');
+Route::get('login/facebook/callback' , 'AUth\LoginController@handleFacebookCallback');
