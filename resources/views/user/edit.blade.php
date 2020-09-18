@@ -17,7 +17,7 @@
               <p class="mb-1 mt-4">プロフィール写真</p>
               @if ($user->profile_photo)
               <div class="profile-photo">
-                <img src="{{ asset('storage/user_images/' . $user->profile_photo) }}">
+                <img src="{{ asset('storage/user_images/' . $user->profile_photo . '?version=' . $user->profile_photo_version) }}">
               </div>
               @endif
               <input type="file" name="profile_photo"  value="{{ old('profile_photo',$user->id) }}" accept="image/jpeg,image/gif,image/png" />
