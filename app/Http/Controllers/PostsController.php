@@ -46,8 +46,15 @@ class PostsController extends Controller
     }
 
     public function edit(Post $post){
-      $tags =  Tag::all();
-      return view('post.edit' , ['post' => $post , 'tags' => $tags]);
+      $post_tags = $post->tags;
+      $tags_id = array();//編集前のタグのidが入った配列
+      foreach($post_tags as $post_tag){
+        $tags_id[] = $post_tag->id;
+      }
+
+      $tags =  Tag::all();//全タグ
+
+      return view('post.edit' , ['post' => $post , 'tags' => $tags , 'tags_id' => $tags_id]);
     }
 
     public function update(Request $request , Post $post){
