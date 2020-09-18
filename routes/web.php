@@ -34,6 +34,7 @@ Route::get('/posts/{post}/delete' , 'PostsController@destroy')->name('posts.dele
 Route::get('/users/{user}' , 'UsersController@show')->name('users.show')->where('user', '[0-9]+');
 Route::get('/users/edit' , 'UsersController@edit')->name('users.edit');
 Route::post('/users/update' , 'UsersController@update')->name('users.update');
+Route::get('/users/delete' , 'UsersController@destroy')->name('users.delete');
 
 Route::get('/guest', 'Auth\LoginController@authenticate')->name('login.guest');
 
@@ -44,5 +45,5 @@ Route::post('/comments/{comment}' , 'CommentsController@destroy')->where('commen
 
 Route::get('/ajax/tags/{user}', 'Ajax\TagsController@index')->where('user', '[0-9]+');
 
-Route::get('/login/facebook' , 'AUth\LoginController@redirectToFacebook')->name('login.facebook');
-Route::get('/login/facebook/callback' , 'AUth\LoginController@handleFacebookCallback');
+Route::get('/login/facebook' , 'Auth\LoginController@redirectToFacebook')->name('login.facebook');
+Route::get('/login/facebook/callback' , 'Auth\LoginController@handleFacebookCallback');
