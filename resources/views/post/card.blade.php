@@ -3,7 +3,7 @@
     <div class="profile-photo" >
       <a href="{{route('users.show' , ['user' => $post->user])}}">
         @if($post->user->profile_photo)
-        <img src="{{asset('storage/user_images/' . $post->user->profile_photo)}}">
+        <img src="{{asset('storage/user_images/' . $post->user->profile_photo . '?version=' . $post->user->profile_photo_version)}}">
         @else
         <img src="{{asset('images/noimage.png')}}">
         @endif

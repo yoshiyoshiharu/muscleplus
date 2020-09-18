@@ -25,7 +25,6 @@ class UsersController extends Controller
 
     public function update(Request $request)
     {
-
         $validator = Validator::make($request->all() , [
               'name' => 'required|string|max:255',
               'password' => 'required|string|min:6|confirmed',
@@ -48,6 +47,7 @@ class UsersController extends Controller
           if($request->file('profile_photo')->isValid()){
             $request->profile_photo->storeAs('public/user_images', $user->id . '.jpg');
             $user->profile_photo = $user->id . '.jpg';
+            $user->profile_photo_version = date('YmdHis');
           }
         }
         $user->password = bcrypt($request->password);

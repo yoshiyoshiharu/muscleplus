@@ -10,7 +10,7 @@
       <div class="col-md-6">
         @if($user->profile_photo)
         <div class="profile-photo">
-          <img src="{{ asset('storage/user_images/' . $user->profile_photo)}}">
+          <img src="{{ asset('storage/user_images/' . $user->profile_photo . '?version=' . $user->profile_photo_version)}}">
         </div>
         @else
         <div class="profile-photo">
