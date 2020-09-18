@@ -55,4 +55,13 @@ class UsersController extends Controller
 
         return redirect('/users/'.$request->id);
     }
+
+    public function destroy(){
+      $user = Auth::user();
+      if($user->email === "guest@guest.com"){
+        return redirect('/');
+      }
+      $user->delete();
+      return redirect('/');
+    }
 }

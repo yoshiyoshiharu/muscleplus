@@ -83,7 +83,7 @@
     <p>ユーザーは，当社の定める退会手続により，本サービスから退会できるものとします。</p>
     @auth
       @if(Auth::user()->email !== "guest@guest.com")
-      <a href="#" onclicke="return confirm('退会しますか？')">退会する</a>
+      <a href="{{route('users.delete')}}" onclick="return confirm('退会しますか？')">退会する</a>
       @endif
     @endauth
 
