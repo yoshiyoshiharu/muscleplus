@@ -1,0 +1,20 @@
+.policy-wrapper{
+  background: #FFCC00;
+  padding:70px 0;
+}
+.policy-container{
+  background-color: white;
+  border-radius: 20px;
+  padding:20px;
+}
+.policy-wrapper h1{
+  text-align:center;
+  font-weight: bold;
+}
+.policy-wrapper h2{
+  margin-top:30px;
+  font-weight: bold;
+}
+.policy-wrapper p{
+  font-size:16px;
+}

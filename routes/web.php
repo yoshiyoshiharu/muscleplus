@@ -15,6 +15,13 @@ Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
 
+Route::get('/policy', function () {
+    return view('policy');
+})->name('policy');
+Route::get('/terms', function () {
+    return view('terms');
+})->name('terms');
+
 Auth::routes();
 
 Route::get('/home', 'PostsController@index')->name('posts.index');
@@ -37,5 +44,5 @@ Route::post('/comments/{comment}' , 'CommentsController@destroy')->where('commen
 
 Route::get('/ajax/tags/{user}', 'Ajax\TagsController@index')->where('user', '[0-9]+');
 
-Route::get('login/facebook' , 'AUth\LoginController@redirectToFacebook')->name('login.facebook');
-Route::get('login/facebook/callback' , 'AUth\LoginController@handleFacebookCallback');
+Route::get('/login/facebook' , 'AUth\LoginController@redirectToFacebook')->name('login.facebook');
+Route::get('/login/facebook/callback' , 'AUth\LoginController@handleFacebookCallback');

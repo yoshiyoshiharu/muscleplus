@@ -19,6 +19,7 @@
     <link href="{{ asset('css/styles.css') }}" rel="stylesheet">
     <link href="{{ asset('css/users.css') }}" rel="stylesheet">
     <link href="{{ asset('css/posts.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/others.css') }}" rel="stylesheet">
     <script type="text/javascript">
         if (window.location.hash && window.location.hash == '#_=_') {
             window.location.hash = '';
@@ -32,6 +33,11 @@
 
         @yield('content')
       <footer>
+        <div class="footer-nav">
+          <a href="{{route('terms')}}">利用規約</a>
+          <span>|</span>
+          <a href="{{route('policy')}}">プライバシーポリシー</a>
+        </div>
         <p>&copy; 2020 muscleplus Co. , Ltd.</p>
       </footer>
     </div>
