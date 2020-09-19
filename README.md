@@ -33,7 +33,6 @@ https://muscle-plus.com
 ## バックエンド
 - PHP 7.1.3
 - Larvel 5.8
-## DB設計
 ## 開発環境
 - Docker/Docker-compose(Laradock)
 - MySQL
