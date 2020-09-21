@@ -39,6 +39,7 @@ Route::get('/users/delete' , 'UsersController@destroy')->name('users.delete');
 Route::get('/users/{user}/followings' , 'UsersController@followings')->name('users.followings')->where('user', '[0-9]+');
 Route::get('/users/{user}/followers' , 'UsersController@followers')->name('users.followers')->where('user', '[0-9]+');
 Route::get('/users/{user}/follow' , 'UsersController@FollowOrUnfollow')->where('user', '[0-9]+');
+Route::get('/users/index/{name}', 'UsersController@getUsersBySearchName');
 
 Route::get('/guest', 'Auth\LoginController@authenticate')->name('login.guest');
 

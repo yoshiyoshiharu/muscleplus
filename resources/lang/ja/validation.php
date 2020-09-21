@@ -159,7 +159,8 @@ return [
     'email' => 'メールアドレス',
     'password' => 'パスワード',
     'body' => '記録内容',
-    'comment' => 'コメント'
+    'comment' => 'コメント',
+    'phrase' => 'ひとこと'
 ],
 
 ];

@@ -46,5 +46,6 @@
    <script src="{{asset('js/like.js')}}"></script>
    <script src="{{asset('js/comment.js')}}"></script>
    <script src="{{asset('js/follow.js')}}"></script>
+   <script src="{{asset('js/search.js')}}"></script>
 </body>
 </html>
