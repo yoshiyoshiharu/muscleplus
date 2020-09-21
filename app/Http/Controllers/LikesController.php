@@ -13,7 +13,7 @@ class LikesController extends Controller
       $this->middleware('auth');
     }
 
-    public function process(Post $post){
+    public function LikeOrUnlike(Post $post){
       $user_like = Like::where([
         ['user_id' , Auth::user()->id],
         ['post_id' , $post->id]

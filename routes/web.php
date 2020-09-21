@@ -36,9 +36,13 @@ Route::get('/users/edit' , 'UsersController@edit')->name('users.edit');
 Route::post('/users/update' , 'UsersController@update')->name('users.update');
 Route::get('/users/delete' , 'UsersController@destroy')->name('users.delete');
 
+Route::get('/users/{user}/followings' , 'UsersController@followings')->name('users.followings')->where('user', '[0-9]+');
+Route::get('/users/{user}/followers' , 'UsersController@followers')->name('users.followers')->where('user', '[0-9]+');
+Route::get('/users/{user}/follow' , 'UsersController@FollowOrUnfollow')->where('user', '[0-9]+');
+
 Route::get('/guest', 'Auth\LoginController@authenticate')->name('login.guest');
 
-Route::get('/likes/{post}' , 'LikesController@process')->name('likes')->where('post', '[0-9]+');
+Route::get('/likes/{post}' , 'LikesController@LikeOrUnlike')->name('likes')->where('post', '[0-9]+');
 
 Route::post('/comments' , 'CommentsController@store');
 Route::post('/comments/{comment}' , 'CommentsController@destroy')->where('comment', '[0-9]+');

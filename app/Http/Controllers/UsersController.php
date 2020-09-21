@@ -27,7 +27,6 @@ class UsersController extends Controller
     {
         $validator = Validator::make($request->all() , [
               'name' => 'required|string|max:255',
-              'password' => 'required|string|min:6|confirmed',
               //ゲストは変更不可
               'email' => [
                 Rule::notIn(['guest@guest.com'])
@@ -41,6 +40,7 @@ class UsersController extends Controller
 
         $user = User::find($request->id);
         $user->name = $request->name;
+        $user->phrase = $request->phrase;
 
 
         if($request->hasFile('profile_photo')){
@@ -50,7 +50,6 @@ class UsersController extends Controller
             $user->profile_photo_version = date('YmdHis');
           }
         }
-        $user->password = bcrypt($request->password);
         $user->save();
 
         return redirect('/users/'.$request->id);
@@ -63,5 +62,27 @@ class UsersController extends Controller
       }
       $user->delete();
       return redirect('/');
+    }
+
+    public function followings(User $user){
+      return view('user.followings' , ['followings' => $user->followings]);
+    }
+
+    public function followers(User $user){
+      return view('user.followers' , ['followers' => $user->followers]);
+    }
+
+    public function FollowOrUnfollow(User $user){
+      //Auth::userが$userをフォロー中なら
+      if($user->isFollowedBy(Auth::user())){
+        //フォローを解除
+        Auth::user()->followings()->detach($user);
+        return 'unfollow';
+      }else{
+        //フォローする
+        Auth::user()->followings()->attach($user);
+        return 'follow';
+      }
+
     }
 }
