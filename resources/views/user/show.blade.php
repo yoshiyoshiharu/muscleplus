@@ -34,6 +34,7 @@
       </div>
     </div>
     <div class="user-graph">
+      <h2>記録統計</h2>
       @include('user.graph')
     </div>
     <div class="user-posts">
