@@ -8,15 +8,17 @@
   <div class="profile-wrap">
     <div class="row">
       <div class="col-md-6">
+        <div class="profile-photo">
         @if($user->profile_photo)
-        <div class="profile-photo">
           <img src="{{ asset('storage/user_images/' . $user->profile_photo . '?version=' . $user->profile_photo_version)}}">
-        </div>
         @else
-        <div class="profile-photo">
           <img src="{{ asset('images/noimage.png/')}}">
-        </div>
         @endif
+        </div>
+        <div class="follows">
+          <a href="{{route('users.followings' , ['user' => $user])}}">{{$user->followings->count()}}フォロー</a>
+          <a href="{{route('users.followers' , ['user' => $user])}}" class="follower-count">{{$user->followers->count()}}フォロワー</a>
+        </div>
         @if($user->id == Auth::user()->id)
         <div class="profile-edit">
           <a href="{{route('users.edit')}}">プロフィール編集</a>
@@ -29,9 +31,26 @@
         </div>
         @endif
       </div>
-      <div class="col-md-6">
-        <h1 class="user-name">{{ $user->name}}</h1>
+      <div class="col-md-6 profile-top mt-3">
+        <div class="profile-details">
+          <h1 class="user-name">{{ $user->name}}</h1>
+          <p class="profile-phrase">{{$user->phrase}}</p>
+        </div>
+        @if($user->id !== Auth::user()->id)
+          <?php $whether_follow = (bool)$user->isFollowedBy(Auth::user());?>
+          <div class="btn">
+            <button class="<?php echo $whether_follow ? 'followed-btn' : 'follow-btn'; ?> follow btn-md shadow-none border border-primary p-2 "
+              data-url="{{config('app.url')}}"
+              data-id="{{$user->id}}"
+              data-followers="{{$user->followers->count()}}">
+              <i class="fas
+              <?php echo $whether_follow ? 'fa-user-check' : 'fa-user-plus'; ?>"></i>
+              <span><?php echo $whether_follow ? 'フォロー中' : 'フォローする'; ?></span>
+            </button>
+          </div>
+        @endif
       </div>
+
     </div>
     <div class="user-graph">
       <h2>記録統計</h2>

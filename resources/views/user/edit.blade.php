@@ -29,13 +29,8 @@
             </div>
 
             <div class="form-group">
-              <p class="mb-1 mt-4">パスワード</p>
-              <input autofocus="autofocus" class="form-control" type="password" name="password" />
-            </div>
-
-            <div class="form-group">
-              <p class="mb-1 mt-4">パスワード確認</p>
-              <input autofocus="autofocus" class="form-control" type="password" name="password_confirmation" />
+              <p class="mb-1 mt-4">ひとこと</p>
+              <input autofocus="autofocus" class="form-control" type="text" value="{{ old('phrase',$user->phrase) }}" name="phrase" />
             </div>
 
             <input type="submit" value="変更する" class="btn btn-primary" />

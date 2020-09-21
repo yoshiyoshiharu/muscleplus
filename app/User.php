@@ -38,4 +38,17 @@ class User extends Authenticatable
     public function comments(){
       return $this->hasMany('App\Comment');
     }
+
+    public function followings(){
+      return $this->belongsToMany('App\User' , 'follows', 'following_id', 'follower_id');
+    }
+
+    public function followers(){
+      return $this->belongsToMany('App\User' , 'follows', 'follower_id', 'following_id');
+    }
+
+    //インスタンスが$userにfollowされているかどうか
+    public function isFollowedBy(User $user){
+      return (bool)$this->followers->where('id', $user->id)->count();
+    }
 }

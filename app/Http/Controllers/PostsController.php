@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Post;
 use App\Tag;
+use App\user;
 use Validator;
 use Auth;
 class PostsController extends Controller
@@ -14,8 +15,15 @@ class PostsController extends Controller
     }
 
     public function index(){
-      $posts = Post::all()->sortByDesc('created_at');
+      $followings = Auth::user()->followings;
+      $following_ids = array();
+      foreach($followings as $following){
+        $following_ids[] = $following->id;
+      }
+      $following_ids[] = Auth::user()->id;//自分の記事も表示
+      $posts = Post::whereIn('user_id' , $following_ids)->get()->sortByDesc('created_at');
       $tags =  Tag::all();
+
       return view('post.index' , ['posts' => $posts , 'tags' => $tags]);
 
     }
