@@ -112,8 +112,14 @@
   color:#333;
 }
 .follow-profile-photo{
-  width:40px;
   margin:15px;
+}
+.follow-profile-photo img{
+  width:40px;
+  height:40px;
+  border:1px solid #ddd;
+  border-radius:50%;
+  object-fit: cover;
 }
 .is-followed{
   color:white;

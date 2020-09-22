@@ -27,6 +27,7 @@ class UsersController extends Controller
     {
         $validator = Validator::make($request->all() , [
               'name' => 'required|string|max:255',
+              'phrase' => 'string|max:15',
               //ゲストは変更不可
               'email' => [
                 Rule::notIn(['guest@guest.com'])
@@ -84,5 +85,10 @@ class UsersController extends Controller
         return 'follow';
       }
 
+    }
+
+    public function getUsersBySearchName($name){
+      $users = User::where('name', 'like', '%' . $name . '%')->get();
+      return response()->json($users);
     }
 }

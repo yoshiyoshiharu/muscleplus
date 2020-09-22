@@ -24,6 +24,34 @@
 .card-right a{
   color:#333;
 }
+.search-user-card{
+  display: flex;
+  align-items: center;
+  height:60px;
+  border:1px solid #333;
+  border-bottom:none;
+  background: white;
+}
+.search-user-card:last-child{
+  border-bottom:1px solid #333;
+}
+.search-user-card img{
+  margin:0 10px;
+  display: block;
+  width:40px;
+  height:40px;
+  border:3px solid #ddd;
+  border-radius:50%;
+  object-fit: cover;
+}
+.search-user-card a{
+  display: block;
+  color:#333;
+}
+.search-user-card p{
+  color:#888;
+  margin:0 0 0 10px;
+}
 .btn-like i{
   color:tomato;
   cursor:pointer;
@@ -111,6 +139,14 @@
 .comment-wrap li{
   list-style: none;
   margin-bottom:10px;
+}
+
+/* search */
+.search-wrapper .form-control{
+  border-radius:5px 0 0 5px;
+}
+.search-wrapper .btn{
+  border-radius:0 5px 5px 0;
 }
 #comment-data{
   margin:0;
