@@ -29,7 +29,7 @@
       <div class="follow-right">
         <?php $whether_follow = (bool)$user->isFollowedBy(Auth::user());?>
         <div class="btn">
-          <button class="<?php echo $whether_follow ? 'followed-btn' : 'follow-btn'; ?> follow btn-md shadow-none border border-primary p-2 "
+          <button class="<?php echo $whether_follow ? 'followed-btn' : 'follow-btn'; ?> follow btn-md shadow-none border border-primary p-md-2 "
             data-url="{{config('app.url')}}"
             data-id="{{$user->id}}"
             data-followers="{{$user->followers->count()}}">
