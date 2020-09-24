@@ -19,7 +19,7 @@
         @endif
         </div>
       </a>
-      <a href="{{route('users.show' , ['user' => $user])}}"><strong>{{$user->name}}</strong></a>
+      <a class="following-link" href="{{route('users.show' , ['user' => $user])}}"><strong>{{$user->name}}</strong></a>
       @if(Auth::user()->isFollowedBy($user))
       <div class="is-followed">
         フォローされています

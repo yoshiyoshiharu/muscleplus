@@ -21,7 +21,7 @@ class PostsController extends Controller
         $following_ids[] = $following->id;
       }
       $following_ids[] = Auth::user()->id;//自分の記事も表示
-      $posts = Post::whereIn('user_id' , $following_ids)->get()->sortByDesc('created_at');
+      $posts = Post::whereIn('user_id' , $following_ids)->latest()->paginate(5);
       $tags =  Tag::all();
 
       return view('post.index' , ['posts' => $posts , 'tags' => $tags]);
