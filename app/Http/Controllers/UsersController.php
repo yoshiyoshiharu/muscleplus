@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\Post;
 use Auth;
 use Validator;
 use Illuminate\Validation\Rule;
@@ -15,7 +16,8 @@ class UsersController extends Controller
     }
 
     public function show(User $user){
-      return view('user.show' , ['user' => $user]);
+      $posts = Post::where('user_id' , $user->id)->latest()->paginate(5);
+      return view('user.show' , ['user' => $user , 'posts' => $posts]);
     }
 
     public function edit(){

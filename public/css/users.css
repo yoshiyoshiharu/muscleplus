@@ -111,6 +111,11 @@
 }
 .follow-left a{
   color:#333;
+
+}
+.following-link{
+  display: inline-block;
+  min-width:80px;
 }
 .follow-profile-photo{
   margin:15px;
