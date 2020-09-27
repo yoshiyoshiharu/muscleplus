@@ -77,11 +77,11 @@ class PostsController extends Controller
       $post->body = $request->body;
       $post->save();
       $post->tags()->sync($request->tags);
-      return redirect('/home');
+      return redirect()->route('users.show' , ['user' => Auth::user()]);
     }
 
     public function destroy(Post $post){
       $post->delete();
-      return redirect('/home');
+      return redirect()->back();
     }
 }
