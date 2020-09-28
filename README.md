@@ -27,7 +27,6 @@ https://muscle-plus.com
 # 使用技術
 ## フロントエンド
 - Bootstrap 4.2.1
-- CSS
 - JavaScript(Vue.js , Chart.js)
 - jQuery , Ajax
 ## バックエンド
