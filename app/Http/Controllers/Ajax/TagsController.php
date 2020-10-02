@@ -45,15 +45,29 @@ class TagsController extends Controller
     }
 
     public function months(User $user){
+      /*
+      [
+       0 => [value =>202009 , name=>2020年09月 ]
+       1 => [value =>202010 , name=>2020年010月 ]
+       2 => [valie =>202011 , name=>2020年11月　]
+      ]
+      */
       //はじめてポストしてから今月までの月を202009のような形で返す。
       $firstPost = Post::where('user_id' , $user->id)->orderBy('created_at' , 'asc')->first();
-      $firstMonth = new Carbon($firstPost->created_at->format('Y-m-d h:i:s'));
-      $month = $firstMonth->format('Ym');
+      //最後にポストした日にち
+      $lastPost = Post::where('user_id' , $user->id)->orderBy('created_at' , 'desc')->first();
+      $firstMonth = new Carbon($firstPost->created_at);
+      $firstMonth = $firstMonth->startOfMonth();
+      $lastMonth = new Carbon($lastPost->created_at);
+      $lastMonth = $lastMonth->startOfMonth();
+      //formatは表示するときに使用するので、日時の比較はformatでは行えない
+      //firstMonthを1日にもどせばok
+      //2020-07-04 23:07:29.0 を 2020-07-01 0:0:0:0に直す
 
-      $thisMonth = Carbon::now();
       $months = array();
       $month = $firstMonth;
-      for($i=0;$month < $thisMonth;$i++){
+
+      for( $i=0; $month <= $lastMonth; $i++){
         $months[$i]['value'] = $month->format('Ym');
         $months[$i]['name'] = $month->format('Y年m月');
         $month->addMonths(1);
