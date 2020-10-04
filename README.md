@@ -40,6 +40,8 @@ https://muscle-plus.com
 - AWS(VPC , EC2 , RDS , ALB , Route53 , Certificate Manager)
 - MySQL
 - Nginx
+## DB設計図
+![Database](https://user-images.githubusercontent.com/54305137/95008495-6451c780-0655-11eb-8546-e5d023691abe.png)
 ## インフラ構成図
 ![muscleplus](https://user-images.githubusercontent.com/54305137/93660997-4c901600-fa8f-11ea-8104-2bb7f1a915ab.jpg)
 ## その他
