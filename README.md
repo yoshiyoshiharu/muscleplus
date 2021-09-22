@@ -47,4 +47,3 @@ https://muscle-plus.com
 ![muscleplus](https://user-images.githubusercontent.com/54305137/93660997-4c901600-fa8f-11ea-8104-2bb7f1a915ab.jpg)
 ## その他
 - 外部API(Facebook API)
-- Githubの活用(イシュー、プルリク、マージなど)
